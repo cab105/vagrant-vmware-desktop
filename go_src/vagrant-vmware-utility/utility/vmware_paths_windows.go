@@ -27,7 +27,7 @@ func (v *VmwarePaths) Load() error {
 	progDataPath := ""
 	access = registry.QUERY_VALUE
 	if runtime.GOARCH == "amd64" {
-		access = access | registry.WOW64_32KEY
+		access = access | registry.WOW64_64KEY
 	}
 	regKey, err := registry.OpenKey(registry.LOCAL_MACHINE,
 		`SOFTWARE\VMware, Inc.\VMware Workstation`, access)

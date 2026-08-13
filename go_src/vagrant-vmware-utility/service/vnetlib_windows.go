@@ -333,7 +333,7 @@ func (v *VnetlibExe) serviceRunning(name string) (bool, error) {
 
 func (v *VnetlibExe) registryAccess(access uint32) uint32 {
 	if runtime.GOARCH == "amd64" {
-		access = access | registry.WOW64_32KEY
+		access = access | registry.WOW64_64KEY
 	}
 	return access
 }

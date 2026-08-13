@@ -244,7 +244,7 @@ func (b *BaseDriver) VmwareInfo() (*VmwareInfo, error) {
 	var access uint32
 	access = registry.QUERY_VALUE
 	if runtime.GOARCH == "amd64" {
-		access = access | registry.WOW64_32KEY
+		access = access | registry.WOW64_64KEY
 	}
 	corePath := `SOFTWARE\VMware, Inc.`
 	coreKey, err := registry.OpenKey(registry.LOCAL_MACHINE, corePath, access)
@@ -299,7 +299,7 @@ func (b *BaseDriver) Validate() bool {
 
 func (b *BaseDriver) registryAccess(access uint32) uint32 {
 	if runtime.GOARCH == "amd64" {
-		access = access | registry.WOW64_32KEY
+		access = access | registry.WOW64_64KEY
 	}
 	return access
 }
